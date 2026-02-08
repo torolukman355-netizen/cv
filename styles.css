@@ -257,8 +257,6 @@ section {
   color: var(--text-light);
   line-height: 1.7;
 }
-
-/* Center About section content */
 .about {
   display: block;
 }
@@ -266,8 +264,7 @@ section {
 .about .container {
   display: block;
 }
-
-/* About title: place above content and center within the page */
+Z
 .about .section-title {
   text-align: center;
   max-width: 640px;

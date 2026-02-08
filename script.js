@@ -1,6 +1,3 @@
-// ========================
-// PORTFOLIO MAIN SCRIPT
-// ========================
 
 document.addEventListener('DOMContentLoaded', function() {
   // ===== 1. SMOOTH SCROLL & ACTIVE NAV =====
@@ -8,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.querySelectorAll('.nav-menu a');
 
-  // Close menu when a link is clicked
   navLinks.forEach(link => {
     link.addEventListener('click', function() {
       if (navMenu) navMenu.classList.remove('active');
@@ -16,13 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Set active navigation
   function setActiveNav(element) {
     navLinks.forEach(link => link.classList.remove('active'));
     element.classList.add('active');
   }
 
-  // Highlight active section on scroll
   window.addEventListener('scroll', function() {
     let current = '';
     const sections = document.querySelectorAll('section');
@@ -49,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // ===== 3. ABOUT BUTTON (SCROLL) =====
+  // ===== 3. ABOUT BUTTON  =====
   const aboutBtn = document.getElementById('aboutBtn');
   if (aboutBtn) {
     aboutBtn.addEventListener('click', function() {
@@ -57,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // ===== 4. CONTACT BUTTON (SCROLL) =====
+  // ===== 4. CONTACT BUTTON  =====
   const contactBtn = document.getElementById('contactBtn');
   if (contactBtn) {
     contactBtn.addEventListener('click', function() {
@@ -80,22 +74,20 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
 
-      // Validate email
+    
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
         showNotification('Email tidak valid!', 'error');
         return;
       }
 
-      // Create mailto link
+  
       const subject = encodeURIComponent(`Pesan Baru dari ${name}`);
       const body = encodeURIComponent(`Nama: ${name}\nEmail: ${email}\n\nPesan:\n${message}`);
       const mailtoLink = `mailto:lukman@example.com?subject=${subject}&body=${body}`;
 
-      // Open email client
       window.location.href = mailtoLink;
 
-      // Reset form
       contactForm.reset();
       showNotification('Terima kasih! Email Anda sudah dikirim.', 'success');
     });
@@ -103,20 +95,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ===== 6. NOTIFICATION SYSTEM =====
   function showNotification(message, type = 'info') {
-    // Remove existing notification
     const existingNotif = document.querySelector('.notification');
     if (existingNotif) existingNotif.remove();
 
-    // Create notification element
     const notif = document.createElement('div');
     notif.className = `notification notification-${type}`;
     notif.textContent = message;
     document.body.appendChild(notif);
 
-    // Show notification
+  
     setTimeout(() => notif.classList.add('show'), 10);
 
-    // Remove after 4 seconds
     setTimeout(() => {
       notif.classList.remove('show');
       setTimeout(() => notif.remove(), 300);
@@ -132,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // ===== 8. DARK MODE TOGGLE =====
   const themeToggle = document.querySelector('[data-theme-toggle]');
   if (themeToggle) {
-    // Check for saved theme preference or default to light mode
+    
     const currentTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', currentTheme);
 
@@ -156,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        // observer.unobserve(entry.target); // Optional: unobserve after first visibility
+       
       }
     });
   }, observerOptions);
@@ -189,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log('%cBuat pertanyaan atau kolaborasi? Email: lukman@example.com', 'color: #666; font-size: 14px;');
 });
 
-// ===== NOTIFICATION STYLES (added via JavaScript) =====
+// ===== NOTIFICATION STYLES  =====
 const style = document.createElement('style');
 style.textContent = `
   .notification {
