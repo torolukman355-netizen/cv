@@ -658,10 +658,36 @@ Z
   font-size: 14px;
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .nav-menu {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--bg-light);
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu li {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-menu li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: 16px 20px;
+    width: 100%;
   }
 
   .hamburger {
